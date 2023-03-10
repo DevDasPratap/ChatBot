@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="sidebar">
+    <h2>Chat Bar</h2>
+    <button class="sidebar-button" matTooltip="Demo button"><span>+</span>New chat</button>
+  </div>
+  <div class="chatbox">
+    <h1>ChatBot</h1>
+    <div class="chat-area">
+      <div *ngFor="let chat of chats">
+        <div class="{{chat.user === 'gpt' ? 'gpt-chat' : 'user-chat'}}">
+          <div class="{{chat.user === 'gpt' ? 'avatar-gpt' : 'avatar-user'}}"></div>
+          <!-- <span>How can I help you today?</span> -->
+          <span>{{chat.message}}</span>
+        </div>
+      </div>
+      </div>
+    <!-- <div class="user-chat">
+      <div><img src="../assets/user-logo.png" alt="Avatar" class="avatar-user"></div>
+      <span>I wanted to use ChatBot today.</span>
+    </div> -->
+    <div class="chat-input">
+      <form action="" [formGroup]="form" (ngSubmit)="onSubmit()">
+        <input type="text" class="chat-input-textarea" placeholder="Type your message here" formControlName="message">
+        <button matTooltip="Send"><mat-icon>send</mat-icon></button>
+      </form>
+    </div>
+  </div>
+</div>
